@@ -28,7 +28,17 @@ function oplbootstrap_helper_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'masonry_views';
+  $handler->display->display_options['style_options']['row_class'] = 'card-layout card-events-features';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_column_width'] = '33';
+  $handler->display->display_options['style_options']['masonry_column_width_units'] = '%';
+  $handler->display->display_options['style_options']['masonry_gutter_width'] = '16';
+  $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
+  $handler->display->display_options['style_options']['masonry_animated'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_fit_width'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_images_first'] = TRUE;
   $handler->display->display_options['row_plugin'] = 'entity';
   $handler->display->display_options['row_options']['view_mode'] = 'teaser';
   /* Field: Content: Title */
@@ -57,6 +67,10 @@ function oplbootstrap_helper_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['path'] = 'event-teasers';
   $translatables['all_event_hodes_teaser_'] = array(
     t('Master'),
     t('more'),
@@ -72,6 +86,7 @@ function oplbootstrap_helper_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('Page'),
   );
   $export['all_event_hodes_teaser_'] = $view;
 
