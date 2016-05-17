@@ -6,3 +6,13 @@
 
 include_once 'oplbootstrap_helper.features.inc';
 
+
+/**
+ * Implements hook_ctools_plugin_directory()
+ */
+function oplbootstrap_helper_ctools_plugin_directory($module, $plugin) {
+  if ($module == "panels" && in_array($plugin, array('layouts', 'styles'))) {
+    return "plugins/$plugin";
+  }
+}
+
