@@ -7,8 +7,8 @@
 
   <?php if ($content['left'] || $content['right']): ?>
     <div class="row"> <!-- @TODO: Add extra classes -->
-      <div class="col-md-9"><?php print $content['left']; ?></div>
-      <div class="col-md-3"><?php print $content['right']; ?></div>
+      <div class="col-md-9 main-page-content"><?php print $content['left']; ?></div>
+      <aside class="col-md-3"><?php print $content['right']; ?></aside>
     </div>
   <?php endif ?>
 

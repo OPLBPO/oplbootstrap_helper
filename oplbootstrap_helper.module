@@ -16,3 +16,86 @@ function oplbootstrap_helper_ctools_plugin_directory($module, $plugin) {
   }
 }
 
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function oplbootstrap_helper_block_info() {
+  $blocks['footer_library_card'] = array(
+    'info' => t('Footer Library Card'),
+  );
+
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function oplbootstrap_helper_block_view($delta = '') {
+
+  $theme_name = 'oplbootstrap';
+  $alt_text = 'the-card';
+  $image_width = '200';
+  $image_height = '143';
+  $image_class = 'the-class-name';
+  $image_id = 'the-id';
+
+  switch ($delta) {
+    case 'footer_library_card':
+      $block['content'] = theme('image', array(
+        'path' => drupal_get_path('theme', $theme_name) . '/images/the-card.png',
+        'alt' => $alt_text,
+        'width' => $image_width,
+        'height' => $image_height,
+        'attributes' => array(
+          'class' => array(
+            $image_class,
+          ),
+          'id' => $image_id,
+        )
+      ));
+    break;       
+  }
+  return $block;
+}
+
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function oplbootstrap_helper_block_view_alter(&$data, $block) {
+  if('menu-menu-my-opl-menu' == $block->bid){
+    unset($data['subject']);
+
+    $menulinks = array();
+
+    foreach ($data['content'] as $key => $value) {
+      $menulinks[$key] = $value;
+      unset($data['content'][$key]);
+    }
+
+    $data['content']['menulinks'] = $menulinks;
+    
+    $buttontext = t('Log In / My OPL');
+
+    if(user_is_logged_in()){
+      $buttontext = t('My OPL');
+    }
+
+    $oplbutton = array(
+      'oplink' => array(
+        '#markup' => '<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $buttontext . '</button>',
+      ),
+    );
+
+    array_unshift($data['content'],$oplbutton);
+
+    dpm($data);
+    dpm($block);
+
+
+  }
+}
