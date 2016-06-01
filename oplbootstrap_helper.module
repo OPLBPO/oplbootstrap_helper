@@ -68,8 +68,7 @@ function oplbootstrap_helper_block_view($delta = '') {
  */
 function oplbootstrap_helper_block_view_alter(&$data, $block) {
   if('menu-menu-my-opl-menu' == $block->bid){
-    unset($data['subject']);
-
+    
     $menulinks = array();
 
     foreach ($data['content'] as $key => $value) {
@@ -87,15 +86,28 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
 
     $oplbutton = array(
       'oplink' => array(
-        '#markup' => '<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $buttontext . '</button>',
+        '#markup' => '<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'. $buttontext . ' <i class="fa fa-angle-down" aria-hidden="true"></i></button>',
       ),
     );
 
     array_unshift($data['content'],$oplbutton);
-
-    dpm($data);
-    dpm($block);
-
-
   }
+}
+
+
+/**
+ * Implements hook_menu_attribute_info().
+ */
+function oplbootstrap_helper_menu_attribute_info() {
+  $info['data-toggle'] = array(
+    'label' => t('Data Toggle'),
+    //'description' => t('Specifies a unique toggle attribute.'),
+  );
+
+  $info['data-target'] = array(
+    'label' => t('Data Target'),
+    //'description' => t('Specifies a unique toggle attribute.'),
+  );
+
+  return $info;
 }
