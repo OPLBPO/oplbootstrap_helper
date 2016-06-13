@@ -111,3 +111,36 @@ function oplbootstrap_helper_menu_attribute_info() {
 
   return $info;
 }
+
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function oplbootstrap_helper_field_extra_fields() {
+  $extra['node']['blog']['display']['author_by'] = array(
+    'label' => t('Author By'),
+    'description' => t('Display By in front of authors name'),
+    'weight' => 0,
+  );
+  return $extra;
+}
+
+
+/**
+ * Implements hook_node_view().
+ */
+function oplbootstrap_helper_node_view($node, $view_mode, $langcode) {
+  // Only show the field for node of article type
+  if ($node->type == 'blog') {
+    $user_fields = user_load($node->uid);
+    $displayname = $user_fields->field_borrower_displayname['und']['0']['value'];
+
+    $node->content['author_by'] = array(
+      '#markup' => '<p>'. t('By ') . l( $displayname,  'user/'.$node->uid) . '</p>',
+    );
+  }
+}
+
+
+
+
