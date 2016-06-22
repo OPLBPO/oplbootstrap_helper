@@ -57,7 +57,7 @@ function oplbootstrap_helper_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => 'Event Header',
       'title' => '',
-      'body' => '<header>Events / <a>Event Category</a></header>',
+      'body' => '<header>Events / <a>%node:taxonomy_vocabulary_21</a></header>',
       'format' => 'full_html_no_editor_',
       'substitute' => 1,
     );
