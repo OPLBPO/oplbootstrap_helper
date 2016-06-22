@@ -14,6 +14,10 @@ function oplbootstrap_helper_ctools_plugin_directory($module, $plugin) {
   if ($module == "panels" && in_array($plugin, array('layouts', 'styles'))) {
     return "plugins/$plugin";
   }
+
+  if ($module == 'ctools' && !empty($plugin)) {
+    return "plugins/$plugin";
+  }
 }
 
 
@@ -25,6 +29,10 @@ function oplbootstrap_helper_ctools_plugin_directory($module, $plugin) {
 function oplbootstrap_helper_block_info() {
   $blocks['footer_library_card'] = array(
     'info' => t('Footer Library Card'),
+  );
+
+  $blocks['share_event_blog'] = array(
+    'info' => t('Share event and blog links'),
   );
 
   return $blocks;
@@ -42,6 +50,7 @@ function oplbootstrap_helper_block_view($delta = '') {
   $image_height = '143';
   $image_class = 'the-class-name';
   $image_id = 'the-id';
+  $block = array();
 
   switch ($delta) {
     case 'footer_library_card':
@@ -57,7 +66,14 @@ function oplbootstrap_helper_block_view($delta = '') {
           'id' => $image_id,
         )
       ));
-    break;       
+    break; 
+    
+    case 'share_event_blog':
+      $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
+      $link = url($path, array('absolute' => TRUE));
+
+      $block['content'] = '<div class="the-social"><div class="social-media"><a class="sprite facebookshare" href="https://www.facebook.com/sharer/sharer.php?u=' . $link . '">Facebook</a><a class="sprite googleshare" href="https://plus.google.com/share?url==' . $link . '">Google</a><a class="sprite twittershare" href="https://twitter.com/home?status=' . $link . '">Twitter</a></div></div>';
+    break;          
   }
   return $block;
 }
@@ -142,5 +158,24 @@ function oplbootstrap_helper_node_view($node, $view_mode, $langcode) {
 }
 
 
+/**
+*  Implements hook_form_alter()
+*/
+function oplbootstrap_helper_form_alter(&$form, &$form_state, $form_id)
+{ 
+  if( ($form['#id'] == "views-exposed-form-staff-blogs-bundle-only-search-api2-page") || ($form['#id'] == "views-exposed-form-clone-of-events-and-programs-facets-events-pane") ){                 
+    $form['#attributes'] = array(
+      'class' => array('left-hand-menu-search')
+    );
+  }  
+}
 
 
+/**
+*  Implements hook_form_views_exposed_form_alter()
+*/
+function oplbootstrap_helper_form_views_exposed_form_alter(&$form , &$form_state){
+  // Overrides the views exposed form url to be the current one
+  // Avoids odd views redirect to views page from an exposed form in block
+  $form['#action'] = request_uri();
+}
