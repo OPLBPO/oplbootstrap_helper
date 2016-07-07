@@ -102,6 +102,7 @@ function oplbootstrap_helper_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'masonry';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -113,17 +114,8 @@ function oplbootstrap_helper_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'masonry_views';
-  $handler->display->display_options['style_options']['row_class'] = 'card-layout card-events-features';
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['style_options']['masonry_column_width'] = '100%';
-  $handler->display->display_options['style_options']['masonry_column_width_units'] = '%';
-  $handler->display->display_options['style_options']['masonry_gutter_width'] = '';
-  $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
-  $handler->display->display_options['style_options']['masonry_animated'] = TRUE;
-  $handler->display->display_options['style_options']['masonry_fit_width'] = TRUE;
-  $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
-  $handler->display->display_options['style_options']['masonry_images_first'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'item';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Rendered Content */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
@@ -220,6 +212,7 @@ function oplbootstrap_helper_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['css_class'] = 'masonry';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -232,16 +225,8 @@ function oplbootstrap_helper_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '7';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'masonry_views';
-  $handler->display->display_options['style_options']['row_class'] = 'card-layout card-events-features';
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['style_options']['masonry_column_width'] = '100%';
-  $handler->display->display_options['style_options']['masonry_column_width_units'] = '%';
-  $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
-  $handler->display->display_options['style_options']['masonry_animated'] = TRUE;
-  $handler->display->display_options['style_options']['masonry_fit_width'] = TRUE;
-  $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
-  $handler->display->display_options['style_options']['masonry_images_first'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'item';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Rendered Content */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
