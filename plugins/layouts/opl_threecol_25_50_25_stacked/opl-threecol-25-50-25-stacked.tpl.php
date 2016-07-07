@@ -9,13 +9,13 @@
     <div class="row main-page-content"> <!-- @TODO: Add extra classes -->
       <div>
         <ul class="home-header-tabs">
-          <li><h2 class="home-col-header-tab"><?php print t('Events');?></h2></li>
-          <li class="home-active-tab"><h2 class="home-col-header-tab"><?php print t('Collections');?></h2></li>
-          <li><h2 class="home-col-header-tab"><?php print t('Featured');?></h2></li>
+          <li id="home-events" class="home-col-header-tab"><?php print t('Events');?></li>
+          <li id="home-collections" class="home-col-header-tab home-active-tab"><?php print t('Collections');?></li>
+          <li id="home-featured" class="home-col-header-tab"><?php print t('Featured');?></li>
         </ul>
       </div>
-      <div class="row-height">
-        <div class="col-xs-12 col-md-3 col-height home-events home-active">
+      <div class="home-tabs row-height">
+        <div class="col-xs-12 col-md-3 col-height home-events">
           <div class="inside">
             <h2 class="home-col-header"><?php print t('Events');?></h2>
             <?php print $content['left']; ?>
