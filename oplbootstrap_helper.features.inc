@@ -19,3 +19,28 @@ function oplbootstrap_helper_ctools_plugin_api($module = NULL, $api = NULL) {
 function oplbootstrap_helper_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function oplbootstrap_helper_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: blog_event_card_image.
+  $styles['blog_event_card_image'] = array(
+    'label' => 'blog/event card image',
+    'effects' => array(
+      17 => array(
+        'name' => 'image_crop',
+        'data' => array(
+          'width' => 600,
+          'height' => 300,
+          'anchor' => 'center-center',
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
