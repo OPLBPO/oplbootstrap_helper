@@ -30,14 +30,23 @@ function oplbootstrap_helper_image_default_styles() {
   $styles['blog_event_card_image'] = array(
     'label' => 'blog/event card image',
     'effects' => array(
-      17 => array(
+      18 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 300,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => 2,
+      ),
+      19 => array(
         'name' => 'image_crop',
         'data' => array(
-          'width' => 600,
-          'height' => 300,
+          'width' => 300,
+          'height' => 150,
           'anchor' => 'center-center',
         ),
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
   );
