@@ -50,18 +50,23 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-18c51983-64d3-40f6-af0f-a5b908bda1c5';
+  $pane->pid = 'new-097b657b-faaa-44f4-a0c3-7e318fc4af55';
   $pane->panel = 'middle';
-  $pane->type = 'custom';
-  $pane->subtype = 'custom';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:taxonomy_vocabulary_21';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'admin_title' => 'Event Header',
-    'title' => '',
-    'body' => '<header>Events / <a href="program?f[0]=taxonomy_vocabulary_21:%node:taxonomy-vocabulary-21:tid">%node:taxonomy_vocabulary_21</a></header>',
-    'format' => 'full_html_no_editor_',
-    'substitute' => 1,
+    'label' => 'hidden',
+    'formatter' => 'event_card_subjects',
+    'delta_limit' => '0',
+    'delta_offset' => '0',
+    'delta_reversed' => 0,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_panels_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -71,9 +76,9 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '18c51983-64d3-40f6-af0f-a5b908bda1c5';
-  $display->content['new-18c51983-64d3-40f6-af0f-a5b908bda1c5'] = $pane;
-  $display->panels['middle'][0] = 'new-18c51983-64d3-40f6-af0f-a5b908bda1c5';
+  $pane->uuid = '097b657b-faaa-44f4-a0c3-7e318fc4af55';
+  $display->content['new-097b657b-faaa-44f4-a0c3-7e318fc4af55'] = $pane;
+  $display->panels['middle'][0] = 'new-097b657b-faaa-44f4-a0c3-7e318fc4af55';
   $pane = new stdClass();
   $pane->pid = 'new-a8416f66-9dfa-4e38-8e10-cbcee39b7ae5';
   $pane->panel = 'middle';
