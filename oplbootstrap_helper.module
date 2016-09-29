@@ -35,6 +35,10 @@ function oplbootstrap_helper_block_info() {
     'info' => t('Share event and blog links'),
   );
 
+  $blocks['my_biblio_status'] = array(
+      'info' => t('Bibliocommons account widget'),
+  );
+
   return $blocks;
 }
 
@@ -73,7 +77,14 @@ function oplbootstrap_helper_block_view($delta = '') {
       $link = url($path, array('absolute' => TRUE));
 
       $block['content'] = '<div class="the-social"><div class="social-media"><a class="sprite facebookshare" href="https://www.facebook.com/sharer/sharer.php?u=' . $link . '">Facebook</a><a class="sprite googleshare" href="https://plus.google.com/share?url==' . $link . '">Google</a><a class="sprite twittershare" href="https://twitter.com/home?status=' . $link . '">Twitter</a></div></div>';
-    break;          
+    break;
+
+    case 'my_biblio_status':
+      drupal_add_js('(function ($){var e=document.createElement("script");e.src="https://ottawa.bibliocommons.com/javascripts/sdk.js";e.async=true;var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}(jQuery))', array('type' => 'inline', 'scope'=>'footer', 'weight' => 5));
+
+      $block['content'] = '<div class="bc-widget bc-account-widget" style="height:500px"></div>';
+      break;
+
   }
   return $block;
 }
@@ -83,8 +94,9 @@ function oplbootstrap_helper_block_view($delta = '') {
  * Implements hook_block_view_alter().
  */
 function oplbootstrap_helper_block_view_alter(&$data, $block) {
-  if('menu-menu-my-opl-menu' == $block->bid){
-    
+  switch ($block->bid) {
+    case 'menu-menu-my-opl-menu':
+
     $menulinks = array();
 
     foreach ($data['content'] as $key => $value) {
@@ -93,7 +105,21 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
     }
 
     $data['content']['menulinks'] = $menulinks;
-    
+
+    // Remove logout for anonymous users
+    foreach ($menulinks as $key => $value) {
+      if (user_is_anonymous()) {
+        switch ($key) {
+          case 97053 :
+            unset($data['content']['menulinks'][$key]);
+            break;
+          case 97058 :
+            unset($data['content']['menulinks'][$key]);
+            break;
+          }
+        }
+      }
+
     $buttontext = t('Log In / My OPL');
 
     if(user_is_logged_in()){
@@ -107,6 +133,19 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
     );
 
     array_unshift($data['content'],$oplbutton);
+
+    break;
+
+    case 'menu-menu-user-account-page':
+      global $user;
+      $uid = $user->uid;
+      if (arg(0) == 'user' && (arg(1) <> $uid)) {
+        $block['content'] = '';
+      }
+
+    break;
+
+
   }
 }
 
