@@ -159,7 +159,7 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
           38 //Branch
       );
       $role_check = array_intersect($roles,$ok_roles);
-      if (arg(0) == 'user' && (arg(1) <> $uid) || empty($role_check)) {
+      if ((arg(0) == 'user' && (arg(1) <> $uid)) || empty($role_check)) {
         $data['content'] = '';
       }
 
