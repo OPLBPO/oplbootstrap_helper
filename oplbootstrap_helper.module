@@ -136,7 +136,7 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
 
     break;
 
-    case 'menu-menu-user-account-page':
+    case 'oplbootstrap_helper-my_biblio_status':
       global $user;
       $uid = $user->uid;
       if (arg(0) == 'user' && (arg(1) <> $uid)) {
@@ -145,7 +145,25 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
 
     break;
 
+    case 'menu-menu-user-account-page':
+      global $user;
+      $uid = $user->uid;
+      $roles = array_keys($user->roles);
+      // Role IDs: 15=admin, 34=
+      $ok_roles = array(
+          15, //Administrator
+          34, //Infoservice
+          35, //Infoservice editor
+          36, //Meeting room admin
+          37, //Staff
+          38 //Branch
+      );
+      $role_check = array_intersect($roles,$ok_roles);
+      if (arg(0) == 'user' && (arg(1) <> $uid) || empty($role_check)) {
+        $data['content'] = '';
+      }
 
+    break;
   }
 }
 
