@@ -6,6 +6,7 @@
   <?php endif ?>
 
   <?php if ($content['left'] || $content['center'] || $content['right']): ?>
+      <h1 class="element-invisible"><?php print t('Welcome to Ottawa Public Library'); ?></h1>
     <div class="row main-page-content"> <!-- @TODO: Add extra classes -->
       <div>
         <ul class="home-header-tabs">
