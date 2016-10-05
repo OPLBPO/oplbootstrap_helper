@@ -126,7 +126,7 @@ function oplbootstrap_helper_default_page_manager_handlers() {
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
     'formatter_settings' => array(
-      'title_style' => 'h2',
+      'title_style' => 'h3',
       'title_link' => 'content',
       'title_class' => '',
     ),
