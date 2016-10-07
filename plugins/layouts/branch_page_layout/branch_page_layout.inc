@@ -15,6 +15,7 @@ $plugin = array(
     'branch-hours' => t('Hours'),
     'branch-tabs' => t('Library Tabs'),
     'branch-features' => t('Branch Features'),
+    'branch-announcement' => t('Branch Announcement'),
     'branch-blog-posts' => t('Blog Posts'),
     'branch-quick-tabs' => t('Quick Tabs'),
     'bottom' => t('Bottom'),

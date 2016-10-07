@@ -18,14 +18,17 @@
         <div class="tab-content">  
           <?php print $content['branch-tabs']; ?>
         </div>
+    <?php if ($content['branch-features']): ?>
+        <div class="branch-features">
+      <?php print $content['branch-features']; ?>
       </div>
+        <?php endif ?>
     </div>
-  <?php endif ?>
-
-  <?php if ($content['branch-features']): ?>
-    <div class="branch-features row">
-      <div class="col-md-12"><?php print $content['branch-features']; ?></div>
+    <?php if ($content['branch-announcement']): ?>
+    <div class="branch-announcement row">
+      <div class="col-md-12"><?php print $content['branch-announcement']; ?></div>
     </div>
+    <?php endif ?>
   <?php endif ?>
 
   <?php if ($content['branch-blog-posts']): ?>
