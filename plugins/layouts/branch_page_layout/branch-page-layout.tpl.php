@@ -15,14 +15,15 @@
           <li><a data-target="#tab-map" data-toggle="tab"><?php print t('Map');?></a></li>
           <li><a data-target="#tab-nearest-branches" data-toggle="tab"><?php print t('Nearest branches');?></a></li>
         </ul>
-        <div class="tab-content">  
+        <div class="tab-content">
           <?php print $content['branch-tabs']; ?>
         </div>
     <?php if ($content['branch-features']): ?>
         <div class="branch-features">
       <?php print $content['branch-features']; ?>
+        </div>
+    <?php endif ?>
       </div>
-        <?php endif ?>
     </div>
     <?php if ($content['branch-announcement']): ?>
     <div class="branch-announcement row">
