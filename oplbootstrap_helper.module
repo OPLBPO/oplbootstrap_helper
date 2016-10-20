@@ -103,7 +103,6 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
       $menulinks[$key] = $value;
       unset($data['content'][$key]);
     }
-
     $data['content']['menulinks'] = $menulinks;
 
     // Remove logout for anonymous users
@@ -114,6 +113,12 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
             unset($data['content']['menulinks'][$key]);
             break;
           case 97058 :
+            unset($data['content']['menulinks'][$key]);
+            break;
+          case 97076 :
+            unset($data['content']['menulinks'][$key]);
+            break;
+          case 97081 :
             unset($data['content']['menulinks'][$key]);
             break;
           }
