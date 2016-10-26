@@ -49,7 +49,7 @@ function oplbootstrap_helper_block_info() {
 function oplbootstrap_helper_block_view($delta = '') {
 
   $theme_name = 'oplbootstrap';
-  $alt_text = 'the-card';
+  $alt_text = t('Image of Ottawa Public Library card');
   $image_width = '200';
   $image_height = '143';
   $image_class = 'the-class-name';
