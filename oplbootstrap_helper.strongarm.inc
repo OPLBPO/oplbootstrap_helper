@@ -13,6 +13,77 @@ function oplbootstrap_helper_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'entity_panels_entity_panels_enabled';
+  $strongarm->value = array(
+    'node' => array(
+      'event' => array(
+        'teaser' => TRUE,
+        'search_result' => TRUE,
+      ),
+      'blog' => array(
+        'teaser' => TRUE,
+        'search_result' => TRUE,
+      ),
+      'oplpage' => array(
+        'teaser' => TRUE,
+        'search_result' => TRUE,
+      ),
+      'landing_page' => array(
+        'default' => TRUE,
+      ),
+      'featured_event' => array(
+        'search_result' => TRUE,
+        'featured_event' => TRUE,
+      ),
+      'database' => array(
+        'search_result' => TRUE,
+      ),
+      'site_announcement' => array(
+        'teaser' => TRUE,
+      ),
+      'board_meeting' => array(
+        'search_result' => TRUE,
+      ),
+      'bookmobile_location' => array(
+        'search_result' => TRUE,
+      ),
+      'branch_item' => array(
+        'search_result' => TRUE,
+      ),
+      'branch_meeting_room' => array(
+        'search_result' => TRUE,
+      ),
+      'forum' => array(
+        'search_result' => TRUE,
+      ),
+      'frequently_asked_question' => array(
+        'search_result' => TRUE,
+      ),
+      'help_guide' => array(
+        'search_result' => TRUE,
+      ),
+      'kiosk_location' => array(
+        'search_result' => TRUE,
+      ),
+      'mediaroom' => array(
+        'search_result' => TRUE,
+      ),
+      'page' => array(
+        'search_result' => TRUE,
+      ),
+      'policy' => array(
+        'search_result' => TRUE,
+      ),
+      'webform' => array(
+        'search_result' => TRUE,
+      ),
+    ),
+  );
+  $export['entity_panels_entity_panels_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update_compression_type';
   $strongarm->value = 'min';
   $export['jquery_update_compression_type'] = $strongarm;
@@ -44,6 +115,13 @@ function oplbootstrap_helper_strongarm() {
   $strongarm->name = 'jquery_update_replace';
   $strongarm->value = TRUE;
   $export['jquery_update_replace'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'site_frontpage';
+  $strongarm->value = 'home';
+  $export['site_frontpage'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
