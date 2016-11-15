@@ -1,0 +1,24 @@
+<?php
+/**
+ * @file
+ * Install tasks for oplbootstrap_helper.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function oplbootstrap_helper_install() {
+  // Setup all configuration for oplbootstrap.
+
+  // Enable the theme.
+  theme_enable(array('oplbootstrap', 'bootstrap'));
+
+  // Turn off the old
+  theme_disable(array('opl'));
+
+  // Remove any path aliases to /home
+  // @see https://github.com/OPLBPO/oplbootstrap/issues/154
+  module_load_include('inc', 'path');
+  path_delete('home');
+  path_delete('library');
+}
