@@ -21,4 +21,22 @@ function oplbootstrap_helper_install() {
   module_load_include('inc', 'path');
   path_delete('home');
   path_delete('library');
+
+  // Enable panel pages.
+  $pages = array('node_view', 'user_view');
+  foreach ($pages as $page) {
+    $page = page_manager_get_page_cache($page_name);
+    $function = ctools_plugin_get_function($page->subtask, "enable callback");
+    $function($page, FALSE);
+  }
+  menu_rebuild();
+
+  // @todo waiting on feedback from opl.
+  // Disable some views
+  /*$views = array("myview");
+  foreach ($views as $view_name) {
+    $view = views_get_view($view_name);
+    ctools_export_crud_set_status("views_view", $view, TRUE);
+  }
+  */
 }

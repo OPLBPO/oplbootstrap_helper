@@ -20,7 +20,6 @@ function oplbootstrap_helper_ctools_plugin_directory($module, $plugin) {
   }
 }
 
-
 /**
  * Implements hook_block_info().
  *
@@ -70,8 +69,8 @@ function oplbootstrap_helper_block_view($delta = '') {
           'id' => $image_id,
         )
       ));
-    break; 
-    
+    break;
+
     case 'share_event_blog':
       $path = isset($_GET['q']) ? $_GET['q'] : '<front>';
       $link = url($path, array('absolute' => TRUE));
@@ -225,12 +224,12 @@ function oplbootstrap_helper_node_view($node, $view_mode, $langcode) {
 *  Implements hook_form_alter()
 */
 function oplbootstrap_helper_form_alter(&$form, &$form_state, $form_id)
-{ 
-  if( ($form['#id'] == "views-exposed-form-staff-blogs-bundle-only-search-api2-page") || ($form['#id'] == "views-exposed-form-clone-of-events-and-programs-facets-events-pane") ){                 
+{
+  if( ($form['#id'] == "views-exposed-form-staff-blogs-bundle-only-search-api2-page") || ($form['#id'] == "views-exposed-form-clone-of-events-and-programs-facets-events-pane") ){
     $form['#attributes'] = array(
       'class' => array('left-hand-menu-search')
     );
-  }  
+  }
 }
 
 
