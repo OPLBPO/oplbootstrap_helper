@@ -10,6 +10,7 @@ Create a backup of the site.
 ````
 drush arb
 drush sql-dump > ~/opl-preupgrade.sql
+drush vset maintenance_mode 1
 ````
 **The ``drush arb`` command skips a SQL dump for some reason. Create the dump separately.**
 
@@ -28,4 +29,9 @@ drush make opl.make --concurrency=3 --no-cache build
 drush updb -y
 drush en oplbootstrap_helper -y
 drush features-revert-all --force feature_exclude opl_transaction opl_booking -y
+````
+## Post Upgrade Steps
+
+````
+drush vset maintenance_mode 0
 ````
