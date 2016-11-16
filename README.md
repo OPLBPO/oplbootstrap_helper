@@ -28,6 +28,8 @@ cd opl_make
 drush make opl.make --concurrency=3 --no-cache build
 rm -rf build/sites/default
 cp -ra /home/dev2/pre-update/sites/default build/sites/default
+mv /home/dev2/pre-update /tmp/old-d7 && mv build /home/dev2/pre-update
+cd /home/dev2/pre-update
 drush updb -y
 drush en oplbootstrap_helper -y
 drush features-revert-all --force feature_exclude opl_transaction opl_booking -y
