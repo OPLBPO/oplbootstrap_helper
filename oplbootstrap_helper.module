@@ -93,6 +93,7 @@ function oplbootstrap_helper_block_view($delta = '') {
  * Implements hook_block_view_alter().
  */
 function oplbootstrap_helper_block_view_alter(&$data, $block) {
+  //dpm($block);
   switch ($block->bid) {
     case 'menu-menu-my-opl-menu':
 
@@ -223,9 +224,9 @@ function oplbootstrap_helper_node_view($node, $view_mode, $langcode) {
 /**
 *  Implements hook_form_alter()
 */
-function oplbootstrap_helper_form_alter(&$form, &$form_state, $form_id)
-{
-  if( ($form['#id'] == "views-exposed-form-staff-blogs-bundle-only-search-api2-page") || ($form['#id'] == "views-exposed-form-clone-of-events-and-programs-facets-events-pane") ){
+function oplbootstrap_helper_form_alter(&$form, &$form_state, $form_id) {
+  if( ($form['#id'] == "views-exposed-form-staff-blogs-bundle-only-search-api2-page") || ($form['#id'] == "views-exposed-form-clone-of-events-and-programs-facets-events-pane")
+    || ($form['#id'] == "views-exposed-form-events-search-api-new-panel-pane-1")) {
     $form['#attributes'] = array(
       'class' => array('left-hand-menu-search')
     );
