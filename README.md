@@ -32,7 +32,7 @@ sudo mv /home/dev2/pre-update /tmp/old-d7 && sudo mv build /home/dev2/pre-update
 cd /home/dev2/pre-update
 drush updb -y
 drush en oplbootstrap_helper -y
-drush features-revert-all --force feature_exclude opl_transaction opl_booking -y
+drush features-revert-all --force feature_exclude opl_transaction opl_booking opl_graphic_report -y
 ````
 ### Post Upgrade Steps
 
