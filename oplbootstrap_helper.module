@@ -122,7 +122,7 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
             unset($data['content']['menulinks'][$key]);
             break;
           // Prod logout link
-          case 96921 :
+          case 97364 :
             unset($data['content']['menulinks'][$key]);
             break;
           // Prod Events and Reservations placeholder
