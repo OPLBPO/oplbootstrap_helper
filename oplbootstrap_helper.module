@@ -94,6 +94,7 @@ function oplbootstrap_helper_block_view($delta = '') {
  */
 function oplbootstrap_helper_block_view_alter(&$data, $block) {
   //dpm($block);
+  global $user;
   switch ($block->bid) {
     case 'menu-menu-my-opl-menu':
 
@@ -136,7 +137,8 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
     $buttontext = t('Log In / My OPL');
 
     if(user_is_logged_in()){
-      $buttontext = t('My OPL');
+     // $buttontext = t('My OPL');
+      $buttontext = $user->name;
     }
 
     $oplbutton = array(
