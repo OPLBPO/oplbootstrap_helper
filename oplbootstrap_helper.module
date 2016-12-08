@@ -50,6 +50,8 @@ function oplbootstrap_helper_block_info() {
  * Implements hook_block_view().
  */
 function oplbootstrap_helper_block_view($delta = '') {
+  global $language;
+  $lang = $language->language;
 
   $theme_name = 'oplbootstrap';
   $alt_text = t('Image of Ottawa Public Library card');
@@ -61,18 +63,33 @@ function oplbootstrap_helper_block_view($delta = '') {
 
   switch ($delta) {
     case 'footer_library_card':
-      $block['content'] = theme('image', array(
-        'path' => drupal_get_path('theme', $theme_name) . '/images/the-card.png',
-        'alt' => $alt_text,
-        'width' => $image_width,
-        'height' => $image_height,
-        'attributes' => array(
-          'class' => array(
-            $image_class,
-          ),
-          'id' => $image_id,
-        )
-      ));
+      if ($lang == 'en') {
+        $block['content'] = theme('image', array(
+            'path' => drupal_get_path('theme', $theme_name) . '/images/20161117-Web-OPL-Card-EN.svg',
+            'alt' => $alt_text,
+            'width' => $image_width,
+            'height' => $image_height,
+            'attributes' => array(
+                'class' => array(
+                    $image_class,
+                ),
+                'id' => $image_id,
+            )
+        ));
+      } else {
+        $block['content'] = theme('image', array(
+            'path' => drupal_get_path('theme', $theme_name) . '/images/20161117-Web-OPL-Card-FR.svg',
+            'alt' => $alt_text,
+            'width' => $image_width,
+            'height' => $image_height,
+            'attributes' => array(
+                'class' => array(
+                    $image_class,
+                ),
+                'id' => $image_id,
+            )
+        ));
+      }
     break;
 
     case 'share_event_blog':
