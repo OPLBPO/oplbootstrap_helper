@@ -170,7 +170,13 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
 
     if(user_is_logged_in()){
      // $buttontext = t('My OPL');
-      $buttontext = $user->display_name;
+      $name = field_get_items('user', $user, 'field_borrower_displayname');
+      if ($name) {
+        $buttontext = $name;
+      } else {
+        $buttontext = $user->name;
+      }
+
     }
 
     $oplbutton = array(
