@@ -10,10 +10,10 @@
       <div class="col-md-5"><?php print $content['branch-hours']; ?></div>
       <div class="col-md-7">
         <ul class="nav nav-tabs" id="branch-details">
-          <li class="active"><a data-target="#tab-exterior" data-toggle="tab"><?php print t('Exterior');?></a></li>
-          <li><a data-target="#tab-virtual-tour" data-toggle="tab"><?php print t('Virtual Tour');?></a></li>
-          <li><a data-target="#tab-map" data-toggle="tab"><?php print t('Map');?></a></li>
-          <li><a data-target="#tab-nearest-branches" data-toggle="tab"><?php print t('Nearest branches');?></a></li>
+          <li class="active"><a data-target="#tab-exterior" data-toggle="tab" tabindex="0"><?php print t('Exterior');?></a></li>
+          <li><a data-target="#tab-virtual-tour" data-toggle="tab" tabindex="0"><?php print t('Virtual Tour');?></a></li>
+          <li><a data-target="#tab-map" data-toggle="tab" tabindex="0"><?php print t('Map');?></a></li>
+          <li><a data-target="#tab-nearest-branches" data-toggle="tab" tabindex="0"><?php print t('Nearest branches');?></a></li>
         </ul>
         <div class="tab-content">
           <?php print $content['branch-tabs']; ?>
