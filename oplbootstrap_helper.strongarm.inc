@@ -77,6 +77,10 @@ function oplbootstrap_helper_strongarm() {
       'webform' => array(
         'search_result' => TRUE,
       ),
+      'external_event' => array(
+        'teaser' => TRUE,
+        'search_result' => TRUE,
+      ),
     ),
   );
   $export['entity_panels_entity_panels_enabled'] = $strongarm;
@@ -194,16 +198,10 @@ function oplbootstrap_helper_strongarm() {
       'tabtamer_original_path' => 'node/%node/convert',
       'tabtamer_title' => '',
     ),
-    'node/%/node_export/drupal' => array(
+    'node/%/node_export' => array(
       'weight' => '5',
       'action' => 'enabled',
-      'tabtamer_original_path' => 'node/%node/node_export/drupal',
-      'tabtamer_title' => '',
-    ),
-    'node/%/node_export/dsv' => array(
-      'weight' => '5',
-      'action' => 'enabled',
-      'tabtamer_original_path' => 'node/%node/node_export/dsv',
+      'tabtamer_original_path' => 'node/%node/node_export',
       'tabtamer_title' => '',
     ),
     'node/%/opening_hours' => array(
@@ -228,12 +226,6 @@ function oplbootstrap_helper_strongarm() {
       'weight' => '50',
       'action' => 'enabled',
       'tabtamer_original_path' => 'node/%node/strip-nbsp',
-      'tabtamer_title' => '',
-    ),
-    'node/%/convert-bilingual-event-delimiter' => array(
-      'weight' => '50',
-      'action' => 'enabled',
-      'tabtamer_original_path' => 'node/%node/convert-bilingual-event-delimiter',
       'tabtamer_title' => '',
     ),
     'node/%/registrations' => array(
@@ -518,6 +510,18 @@ function oplbootstrap_helper_strongarm() {
       'tabtamer_original_path' => 'node/%node/moderation/diff/view',
       'tabtamer_title' => '',
     ),
+    'charts/examples/built-in' => array(
+      'weight' => '0',
+      'action' => 'enabled',
+      'tabtamer_original_path' => 'charts/examples/built-in',
+      'tabtamer_title' => '',
+    ),
+    'charts/examples/views' => array(
+      'weight' => '1',
+      'action' => 'enabled',
+      'tabtamer_original_path' => 'charts/examples/views',
+      'tabtamer_title' => '',
+    ),
     'comment/%/view' => array(
       'weight' => '-10',
       'action' => 'enabled',
@@ -752,11 +756,11 @@ function oplbootstrap_helper_strongarm() {
       'tabtamer_original_path' => 'user/%/bookmarks',
       'tabtamer_title' => '',
     ),
-    'user/%/bookings2' => array(
+    'user/%/bookings-all' => array(
       'weight' => '0',
-      'action' => 'hidden',
-      'tabtamer_original_path' => 'user/%/bookings2',
-      'tabtamer_title' => '',
+      'action' => 'enabled',
+      'tabtamer_original_path' => 'user/%/bookings-all',
+      'tabtamer_title' => 'Bookings and transactions',
     ),
     'user/%/edit/account' => array(
       'weight' => '0',
@@ -896,18 +900,6 @@ function oplbootstrap_helper_strongarm() {
       'tabtamer_original_path' => 'taxonomy/term/%taxonomy_term/devel/render',
       'tabtamer_title' => '',
     ),
-    'taxonomy/vocabulary/%/view' => array(
-      'weight' => '1',
-      'action' => 'enabled',
-      'tabtamer_original_path' => 'taxonomy/vocabulary/%taxonomy_vocabulary/view',
-      'tabtamer_title' => '',
-    ),
-    'taxonomy/vocabulary/%/%' => array(
-      'weight' => '0',
-      'action' => 'enabled',
-      'tabtamer_original_path' => 'taxonomy/vocabulary/%taxonomy_vocabulary_machine_name/%',
-      'tabtamer_title' => '',
-    ),
     'forum/view' => array(
       'weight' => '-100',
       'action' => 'enabled',
@@ -1016,7 +1008,7 @@ function oplbootstrap_helper_strongarm() {
     'bootstrap_button_colorize' => 1,
     'bootstrap_button_iconize' => 1,
     'bootstrap_forms_required_has_error' => 0,
-    'bootstrap_forms_smart_descriptions' => 1,
+    'bootstrap_forms_smart_descriptions' => 0,
     'bootstrap_forms_smart_descriptions_limit' => '250',
     'bootstrap_forms_smart_descriptions_allowed_tags' => 'b, code, em, i, kbd, span, strong',
     'bootstrap_image_shape' => '',
@@ -1026,7 +1018,7 @@ function oplbootstrap_helper_strongarm() {
     'bootstrap_table_hover' => 1,
     'bootstrap_table_striped' => 1,
     'bootstrap_table_responsive' => 1,
-    'bootstrap_breadcrumb' => '1',
+    'bootstrap_breadcrumb' => '0',
     'bootstrap_breadcrumb_home' => 1,
     'bootstrap_breadcrumb_title' => 1,
     'bootstrap_navbar_position' => '',

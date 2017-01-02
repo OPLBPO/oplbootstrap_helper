@@ -50,15 +50,15 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
   $pane = new stdClass();
-  $pane->pid = 'new-097b657b-faaa-44f4-a0c3-7e318fc4af55';
+  $pane->pid = 'new-949be7f4-8427-4285-ba8b-f9a7427cc9e3';
   $pane->panel = 'middle';
   $pane->type = 'entity_field';
-  $pane->subtype = 'node:taxonomy_vocabulary_21';
+  $pane->subtype = 'node:field_category';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'event_card_subjects',
+    'formatter' => 'event_card_subjects_new',
     'delta_limit' => '0',
     'delta_offset' => '0',
     'delta_reversed' => 0,
@@ -76,9 +76,9 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '097b657b-faaa-44f4-a0c3-7e318fc4af55';
-  $display->content['new-097b657b-faaa-44f4-a0c3-7e318fc4af55'] = $pane;
-  $display->panels['middle'][0] = 'new-097b657b-faaa-44f4-a0c3-7e318fc4af55';
+  $pane->uuid = '949be7f4-8427-4285-ba8b-f9a7427cc9e3';
+  $display->content['new-949be7f4-8427-4285-ba8b-f9a7427cc9e3'] = $pane;
+  $display->panels['middle'][0] = 'new-949be7f4-8427-4285-ba8b-f9a7427cc9e3';
   $pane = new stdClass();
   $pane->pid = 'new-a8416f66-9dfa-4e38-8e10-cbcee39b7ae5';
   $pane->panel = 'middle';
@@ -88,7 +88,7 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $pane->access = array();
   $pane->configuration = array(
     'label' => 'hidden',
-    'formatter' => 'image',
+    'formatter' => 'event_image_search_results_new',
     'delta_limit' => 0,
     'delta_offset' => '0',
     'delta_reversed' => FALSE,
@@ -156,10 +156,11 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $pane->configuration = array(
     'admin_title' => 'Event Branch',
     'title' => '',
-    'body' => '<p class="card-location"><span><i class="fa fa-map-marker" aria-hidden="true"</i></span> %node:field_event_branch</p>
+    'body' => '<p class="card-location"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span> %node:field-event-branch</p>
 ',
-    'format' => 'full_html_no_editor_',
+    'format' => 'newcomers_full_html',
     'substitute' => 1,
+    'title_heading' => 'h2',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -202,6 +203,103 @@ function oplbootstrap_helper_default_page_manager_handlers() {
   $pane->uuid = '7a52b3e4-6b9e-4db0-b40d-473ed6742061';
   $display->content['new-7a52b3e4-6b9e-4db0-b40d-473ed6742061'] = $pane;
   $display->panels['middle'][4] = 'new-7a52b3e4-6b9e-4db0-b40d-473ed6742061';
+  $pane = new stdClass();
+  $pane->pid = 'new-63c5bf12-cfbb-4bf1-9155-92f63bff15cc';
+  $pane->panel = 'middle';
+  $pane->type = 'entity_field';
+  $pane->subtype = 'node:field_series_1';
+  $pane->shown = TRUE;
+  $pane->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'entity_field_value:node:event:field_series_1',
+        'settings' => array(
+          'field_series_1' => array(
+            'en' => array(
+              0 => array(
+                'tid' => '1656',
+              ),
+              1 => array(
+                'tid' => '1854',
+              ),
+              2 => array(
+                'tid' => '1852',
+              ),
+              3 => array(
+                'tid' => '1857',
+              ),
+              4 => array(
+                'tid' => '1849',
+              ),
+              5 => array(
+                'tid' => '1855',
+              ),
+              6 => array(
+                'tid' => '1850',
+              ),
+              7 => array(
+                'tid' => '1856',
+              ),
+              8 => array(
+                'tid' => '1851',
+              ),
+              9 => array(
+                'tid' => '1848',
+              ),
+              10 => array(
+                'tid' => '1853',
+              ),
+              11 => array(
+                'tid' => '1858',
+              ),
+            ),
+          ),
+          'field_series_1_tid' => array(
+            0 => '1656',
+            1 => '1854',
+            2 => '1852',
+            3 => '1857',
+            4 => '1849',
+            5 => '1855',
+            6 => '1850',
+            7 => '1856',
+            8 => '1851',
+            9 => '1848',
+            10 => '1853',
+            11 => '1858',
+          ),
+        ),
+        'context' => 'argument_entity_panels_entity_id:node_1',
+        'not' => FALSE,
+      ),
+    ),
+  );
+  $pane->configuration = array(
+    'label' => 'hidden',
+    'formatter' => 'event_series_link',
+    'delta_limit' => '0',
+    'delta_offset' => '0',
+    'delta_reversed' => 0,
+    'formatter_settings' => array(),
+    'context' => 'argument_entity_panels_entity_id:node_1',
+    'override_title' => 0,
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
+  );
+  $pane->cache = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
+  $pane->css = array(
+    'css_id' => '',
+    'css_class' => 'blog-tags',
+  );
+  $pane->extras = array();
+  $pane->position = 5;
+  $pane->locks = array();
+  $pane->uuid = '63c5bf12-cfbb-4bf1-9155-92f63bff15cc';
+  $display->content['new-63c5bf12-cfbb-4bf1-9155-92f63bff15cc'] = $pane;
+  $display->panels['middle'][5] = 'new-63c5bf12-cfbb-4bf1-9155-92f63bff15cc';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-9ddafee5-0cdc-4257-a844-4b41379e1956';
   $handler->conf['display'] = $display;
@@ -294,7 +392,13 @@ function oplbootstrap_helper_default_page_manager_pages() {
     'override_title_text' => '',
     'override_title_heading' => 'h2',
   );
-  $pane->cache = array();
+  $pane->cache = array(
+    'method' => 'simple',
+    'settings' => array(
+      'lifetime' => '900',
+      'granularity' => 'none',
+    ),
+  );
   $pane->style = array(
     'settings' => NULL,
   );
@@ -306,14 +410,20 @@ function oplbootstrap_helper_default_page_manager_pages() {
   $display->content['new-79c4adf4-e7c8-44fa-9aa2-63fc70db65a0'] = $pane;
   $display->panels['center'][0] = 'new-79c4adf4-e7c8-44fa-9aa2-63fc70db65a0';
   $pane = new stdClass();
-  $pane->pid = 'new-59cd7d08-d519-47de-8f3a-d0ebc97e3670';
+  $pane->pid = 'new-29ba87a4-31e0-400c-9c13-d45953e0e476';
   $pane->panel = 'left';
   $pane->type = 'views_panes';
-  $pane->subtype = 'home_page_clone_of_events_and_programs_facets-events_pane';
+  $pane->subtype = 'events_search_api_new-panel_pane_2';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array();
-  $pane->cache = array();
+  $pane->cache = array(
+    'method' => 'simple',
+    'settings' => array(
+      'lifetime' => '900',
+      'granularity' => 'none',
+    ),
+  );
   $pane->style = array(
     'settings' => NULL,
   );
@@ -321,33 +431,17 @@ function oplbootstrap_helper_default_page_manager_pages() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '59cd7d08-d519-47de-8f3a-d0ebc97e3670';
-  $display->content['new-59cd7d08-d519-47de-8f3a-d0ebc97e3670'] = $pane;
-  $display->panels['left'][0] = 'new-59cd7d08-d519-47de-8f3a-d0ebc97e3670';
+  $pane->uuid = '29ba87a4-31e0-400c-9c13-d45953e0e476';
+  $display->content['new-29ba87a4-31e0-400c-9c13-d45953e0e476'] = $pane;
+  $display->panels['left'][0] = 'new-29ba87a4-31e0-400c-9c13-d45953e0e476';
   $pane = new stdClass();
-  $pane->pid = 'new-7f78e85e-9c2f-41bd-a386-990bd2d5472f';
+  $pane->pid = 'new-aea24c74-d1f6-4da0-bb95-fb7c06a42bd2';
   $pane->panel = 'left';
-  $pane->type = 'views';
-  $pane->subtype = 'bootstrap_event_results';
-  $pane->shown = TRUE;
+  $pane->type = 'views_panes';
+  $pane->subtype = 'new_events_search_api_with_external-panel_pane_1';
+  $pane->shown = FALSE;
   $pane->access = array();
-  $pane->configuration = array(
-    'override_pager_settings' => 0,
-    'use_pager' => 0,
-    'nodes_per_page' => '5',
-    'pager_id' => '0',
-    'offset' => '0',
-    'more_link' => 0,
-    'feed_icons' => 0,
-    'panel_args' => 0,
-    'link_to_view' => 0,
-    'args' => '',
-    'url' => '',
-    'display' => 'embed_1',
-    'override_title' => 0,
-    'override_title_text' => '',
-    'override_title_heading' => 'h2',
-  );
+  $pane->configuration = array();
   $pane->cache = array();
   $pane->style = array(
     'settings' => NULL,
@@ -356,9 +450,9 @@ function oplbootstrap_helper_default_page_manager_pages() {
   $pane->extras = array();
   $pane->position = 1;
   $pane->locks = array();
-  $pane->uuid = '7f78e85e-9c2f-41bd-a386-990bd2d5472f';
-  $display->content['new-7f78e85e-9c2f-41bd-a386-990bd2d5472f'] = $pane;
-  $display->panels['left'][1] = 'new-7f78e85e-9c2f-41bd-a386-990bd2d5472f';
+  $pane->uuid = 'aea24c74-d1f6-4da0-bb95-fb7c06a42bd2';
+  $display->content['new-aea24c74-d1f6-4da0-bb95-fb7c06a42bd2'] = $pane;
+  $display->panels['left'][1] = 'new-aea24c74-d1f6-4da0-bb95-fb7c06a42bd2';
   $pane = new stdClass();
   $pane->pid = 'new-74a75c84-e509-4b39-b38f-7c3e204b3bf1';
   $pane->panel = 'right';
@@ -367,7 +461,13 @@ function oplbootstrap_helper_default_page_manager_pages() {
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array();
-  $pane->cache = array();
+  $pane->cache = array(
+    'method' => 'simple',
+    'settings' => array(
+      'lifetime' => '900',
+      'granularity' => 'none',
+    ),
+  );
   $pane->style = array(
     'settings' => NULL,
   );
