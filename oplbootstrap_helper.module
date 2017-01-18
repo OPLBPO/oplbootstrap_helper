@@ -175,7 +175,7 @@ function oplbootstrap_helper_block_view_alter(&$data, $block) {
       if ($field_items) {
         $name = $field_items[0]['value'];
       }
-      if ($name) {
+      if (isset($name)) {
         $buttontext = $name;
       } else {
         $buttontext = $user->name;
