@@ -263,12 +263,13 @@ function oplbootstrap_helper_node_view($node, $view_mode, $langcode) {
   // Only show the field for node of article type
   if ($node->type == 'blog') {
     $user_fields = user_load($node->uid);
-    $displayname = $user_fields->field_borrower_displayname['und']['0']['value'];
-
-    // DC: added aria-label to blog author link in teaser display as per Berman issue 7
-    $node->content['author_by'] = array(
-      '#markup' => '<p>'. t('By ') . l( $displayname,  'user/'.$node->uid, array('attributes' => array('aria-label' => t('See more blog posts authored by ') . $displayname))) . '</p>',
-    );
+    if(!empty($user_fields->field_borrower_displayname)) {
+      $displayname = $user_fields->field_borrower_displayname['und']['0']['value'];
+      // DC: added aria-label to blog author link in teaser display as per Berman issue 7
+      $node->content['author_by'] = array(
+        '#markup' => '<p>'. t('By ') . l( $displayname,  'user/'.$node->uid, array('attributes' => array('aria-label' => t('See more blog posts authored by ') . $displayname))) . '</p>',
+      );
+    }
   }
 }
 
