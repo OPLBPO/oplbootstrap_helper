@@ -81,6 +81,27 @@ function oplbootstrap_helper_strongarm() {
         'teaser' => TRUE,
         'search_result' => TRUE,
       ),
+      'audio' => array(
+        'storybook' => TRUE,
+      ),
+      'instagram_feed' => array(
+        'storybook' => TRUE,
+      ),
+      'recipe' => array(
+        'storybook' => TRUE,
+      ),
+      'storybook_article' => array(
+        'storybook' => TRUE,
+      ),
+      'storybook_collections' => array(
+        'storybook' => TRUE,
+      ),
+      'storybook_video_intro' => array(
+        'storybook' => TRUE,
+      ),
+      'video' => array(
+        'storybook' => TRUE,
+      ),
     ),
   );
   $export['entity_panels_entity_panels_enabled'] = $strongarm;
@@ -96,7 +117,7 @@ function oplbootstrap_helper_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'jquery_update_jquery_admin_version';
-  $strongarm->value = 'default';
+  $strongarm->value = '1.10';
   $export['jquery_update_jquery_admin_version'] = $strongarm;
 
   $strongarm = new stdClass();
