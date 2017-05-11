@@ -484,6 +484,41 @@ function oplbootstrap_helper_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'subjects' => 'subjects',
+  );
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['relationship'] = 'tid_representative';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+    'external_event' => 'external_event',
+  );
+  /* Filter criterion: Content: Event Dates (field_event_dates) */
+  $handler->display->display_options['filters']['field_event_dates_value']['id'] = 'field_event_dates_value';
+  $handler->display->display_options['filters']['field_event_dates_value']['table'] = 'field_data_field_event_dates';
+  $handler->display->display_options['filters']['field_event_dates_value']['field'] = 'field_event_dates_value';
+  $handler->display->display_options['filters']['field_event_dates_value']['relationship'] = 'tid_representative';
+  $handler->display->display_options['filters']['field_event_dates_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_event_dates_value']['granularity'] = 'minute';
+  $handler->display->display_options['filters']['field_event_dates_value']['default_date'] = 'now + 1 day';
+  /* Filter criterion: Content: Event status (field_event_status) */
+  $handler->display->display_options['filters']['field_event_status_value']['id'] = 'field_event_status_value';
+  $handler->display->display_options['filters']['field_event_status_value']['table'] = 'field_data_field_event_status';
+  $handler->display->display_options['filters']['field_event_status_value']['field'] = 'field_event_status_value';
+  $handler->display->display_options['filters']['field_event_status_value']['relationship'] = 'tid_representative';
+  $handler->display->display_options['filters']['field_event_status_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_event_status_value']['value'] = array(
+    'cancelled' => 'cancelled',
+  );
   $translatables['terms_with_single_node'] = array(
     t('Master'),
     t('Terms with single node'),
