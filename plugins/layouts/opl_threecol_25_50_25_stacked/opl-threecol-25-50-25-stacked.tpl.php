@@ -18,7 +18,7 @@
       <div class="home-tabs row-height">
         <div class="col-xs-12 col-md-3 col-height home-events">
           <div class="inside">
-            <h2 class="home-col-header"><?php print t('Events');?></h2>
+            <h2 class="home-col-header"><?php print t('Featured');?></h2>
             <?php print $content['left']; ?>
           </div>
         </div>  
@@ -30,7 +30,7 @@
         </div>
         <div class="col-xs-12 col-md-3 col-height home-featured">
           <div class="inside">
-            <h2 class="home-col-header"><?php print t('Featured');?></h2>
+            <h2 class="home-col-header"><?php print t('Events');?></h2>
             <?php print $content['right']; ?>
           </div>
         </div>
