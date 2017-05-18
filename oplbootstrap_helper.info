@@ -50,4 +50,5 @@ features[variable][] = theme_oplbootstrap_settings
 features[views_view][] = all_event_hodes_teaser_
 features[views_view][] = home_page_blog
 features[views_view][] = home_page_clone_of_events_and_programs_facets
+features[views_view][] = new_homepage_blogs_no_solr
 features[views_view][] = terms_with_single_node
